@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhuri - Tech Enthusiast Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-blue: #00d4ff;
+            --primary-pink: #ff0080;
+            --neon-blue: #00ffff;
+            --neon-pink: #ff1493;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(15, 15, 15, 0.9);
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x:hidden;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            margin: 15px 0;
+        }
+        
+        .sidebar a {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-gray);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .sidebar a:hover, .sidebar a.active {
+            background: var(--primary-blue);
+            transform: scale(1.5);
+            box-shadow: 0 0 15px var(--primary-blue);
+        }
+        
+        .sidebar a::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 25px;
+            top: -5px;
+            background: var(--card-bg);
+            color: var(--text-light);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .sidebar a:hover::after {
+            opacity: 1;
+        }
+        
+        /* Landing Section */
+        .landing-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .profile-container {
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .profile-container-outer {
+            width: 220px;
+            height: 220px;
+            border-radius: 30px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-pink));
+            padding: 10px;
+            margin: 0 auto 10px;
+            position: relative;
+            animation: profileGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            object-fit:100%;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+        
+        @keyframes profileGlow {
+            from { box-shadow: 0 0 20px var(--primary-blue); }
+            to { box-shadow: 0 0 30px var(--primary-pink), 0 0 40px var(--primary-blue); }
+        }
+        
+        .typewriter-container {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .typewriter {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Profile Modal */
+        .profile-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal-content {
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-content img {
+            max-width: 80vw;
+            max-height: 80vh;
+            border-radius: 20px;
+            border: 2px solid var(--primary-blue);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -70px;
+            right: -20px;
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .modal-name {
+            margin-top: 20px;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        
+        /* Section Styling */
+        .section {
+            min-height: 100vh;
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Bio Section */
+        .bio-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .bio-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .bio-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        /* Skills Scroller */
+        .skills-container {
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        
+        .skills-scroll {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+        
+        .skill-item {
+            flex: none;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-pink));
+            margin: 0 15px;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Resume Section */
+        .resume-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .resume-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 2px solid var(--primary-blue);
+        }
+        
+        .resume-item h4 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+        
+        .resume-item .date {
+            color: var(--primary-pink);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        /* Contact Form Enhancements */
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1);
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-blue);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border-radius: 12px;
+            padding: 15px 20px;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+        
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-blue);
+            color: var(--text-light);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .form-control:focus::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .contact-form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-pink));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        .social-links {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            margin: 0 15px;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--primary-pink);
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--card-bg);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            
+            .typewriter {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .profile-container-outer {
+                width: 220px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#home" data-tooltip="Home" class="nav-link active"></a></li>
+            <li><a href="#bio" data-tooltip="Bio" class="nav-link"></a></li>
+            <li><a href="#resume" data-tooltip="Resume" class="nav-link"></a></li>
+            <li><a href="#contact" data-tooltip="Contact" class="nav-link"></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Landing Section -->
+    <section id="home" class="landing-section">
+        <div class="profile-container" data-aos="fade-up">
+            <div class="profile-container-outer">
+                <img src="profile.jpg" alt="Madhuri" class="profile-image" onclick="openModal()">
+            </div>
+            <div class="typewriter-container">
+                <h1 class="typewriter">I am a <span id="typewriter-text"></span></h1>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Profile Modal -->
+    <div class="profile-modal" id="profileModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img src="profile.png" alt="Madhuri">
+            <div class="modal-name">Madhuri</div>
+        </div>
+    </div>
+    
+    <!-- Bio Section -->
+    <section id="bio" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bio-card" data-aos="fade-up" data-aos-delay="200">
+                        <p class="bio-text">
+                            Hello 👋! I am Madhuri (Madhu). I am a Tech Enthusiast and a CSE Student @ VIEW. I like photography and am seriously addicted to tech and music 🎵. I am an aspiring developer with incredible skills and outstanding academic performance.
+                        </p>
+                        
+                        <div class="skills-container">
+                            <div class="skills-scroll">
+                                <div class="skill-item">
+                                    <i class="fab fa-cuttlefish"></i>
+                                    <span>C</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>C++</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fab fa-java"></i>
+                                    <span>Java</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>Project Management</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>DBMS</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Web Technologies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Resume</h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="resume-card">
+                        <h3 class="mb-4" style="color: var(--primary-blue);">Education</h3>
+                        <div class="resume-item">
+                            <h4>Computer Science Engineering</h4>
+                            <div class="date">2022 - Present</div>
+                            <p>Vignan Institute of Engineering for Women (VIEW)</p>
+                            <p>Pursuing B.Tech in Computer Science with outstanding academic performance</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Higher Secondary</h4>
+                            <div class="date">2020 - 2022</div>
+                            <p>Completed with excellent grades in PCM stream</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="resume-card">
+                        <h3 class="mb-4" style="color: var(--primary-blue);">Skills & Interests</h3>
+                        <div class="resume-item">
+                            <h4>Programming Languages</h4>
+                            <p>C, C++, Java, Python</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Web Technologies</h4>
+                            <p>HTML, CSS, JavaScript, Responsive Design</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Database Management</h4>
+                            <p>SQL, DBMS Concepts, Data Modeling</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Other Interests</h4>
+                            <p>Photography, Music, Technology Research</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Project Management</h4>
+                            <p>Team Leadership, Planning, Execution</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="contact-form-title">Let's Connect & Create Something Amazing!</h3>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter your full name here..." required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" placeholder="your.email@example.com" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Subject</label>
+                                <input type="text" class="form-control" placeholder="What would you like to discuss?" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" rows="6" placeholder="Share your thoughts, project ideas, collaboration proposals, or just say hello! I'd love to hear from you..." required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/_madhuri_reddy_03?igsh=OXVuajAxamZ2cmc=" target="_blank" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Copyright received. Made with 🤝 by Friend</p>
+        </div>
+    </footer>
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Typed.js for typewriter effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ["#00d4ff", "#ff0080", "#00ffff", "#ff1493"]
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00d4ff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+        
+        // Typewriter Effect
+        const typewriterTexts = [
+            'Tech Enthusiast',
+            'CSE Girl',
+            'Photographer',
+            'Musician'
+        ];
+        
+        let currentIndex = 0;
+        let currentText = '';
+        let isDeleting = false;
+        let typeSpeed = 100;
+        
+        function typeWriter() {
+            const fullText = typewriterTexts[currentIndex];
+            
+            if (isDeleting) {
+                currentText = fullText.substring(0, currentText.length - 1);
+                typeSpeed = 50;
+            } else {
+                currentText = fullText.substring(0, currentText.length + 1);
+                typeSpeed = 100;
+            }
+            
+            document.getElementById('typewriter-text').textContent = currentText;
+            
+            if (!isDeleting && currentText === fullText) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && currentText === '') {
+                isDeleting = false;
+                currentIndex = (currentIndex + 1) % typewriterTexts.length;
+                typeSpeed = 500;
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
+        }
+        
+        // Start typewriter effect
+        typeWriter();
+        
+        // Profile Modal Functions
+        function openModal() {
+            document.getElementById('profileModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('profileModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('profileModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Smooth Scrolling
+        $(document).ready(function() {
+            $('.nav-link').click(function(e) {
+                e.preventDefault();
+                const target = $(this).attr('href');
+                
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top
+                }, 1000);
+                
+                // Update active nav
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            
+            // Contact Form
+            $('#contactForm').submit(function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                this.reset();
+            });
+            
+            // Scroll-based navigation highlighting
+            $(window).scroll(function() {
+                const scrollTop = $(this).scrollTop();
+                
+                $('.section').each(function() {
+                    const sectionTop = $(this).offset().top - 100;
+                    const sectionBottom = sectionTop + $(this).outerHeight();
+                    const sectionId = $(this).attr('id');
+                    
+                    if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
+                        $('.nav-link').removeClass('active');
+                        $(`.nav-link[href="#${sectionId}"]`).addClass('active');
+                    }
+                });
+            });
+        });
+        
+        // Remove floating animation
+        // const profileImg = document.querySelector('.profile-image');
+        // let floatDirection = 1;
+        
+        // function floatAnimation() {
+        //     profileImg.style.transform += ` translateY(${Math.sin(Date.now() * 0.002) * 10}px)`;
+        //     requestAnimationFrame(floatAnimation);
+        // }
+        
+        // floatAnimation();
+        
+        // Add parallax effect
+        $(window).scroll(function() {
+            const scrolled = $(this).scrollTop();
+            const parallax = scrolled * 0.5;
+            
+            $('#particles-js').css('transform', `translateY(${parallax}px)`);
+        });
+    </script>
+</body>
+</html>
