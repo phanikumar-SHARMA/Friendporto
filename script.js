@@ -1,15 +1,13 @@
-
-// Page content data
 const pages = [
     {
         title: "Mithana Madhuri Reddy's eBook",
         content: `
-            <div class="subtitle">Making memories chasing dreams.. pursuing to catch flight ✈️ not feelings..</div>
+            <div class="subtitle"><mark>Pursuing to catch flight ✈️ not feelings</mark></div>
             <p style="text-align: center; margin-top: 40px; font-size: 1.3rem; text-indent: 0;">
-                Welcome to my digital memoir! I'm Mithana Madhuri Reddy (kutty to my friends).
+                Welcome to my <mark>digital memoir</mark> 📖! I'm Mithana Madhuri Reddy (kutty to my friends). Use the navigation on the left or the arrow buttons to explore the different chapters of my story.
             </p>
             <p style="text-align: center; font-size: 1.1rem; text-indent: 0; margin-top: 20px;">
-                Explore different chapters of my story using navigation or arrow buttons.
+                Each page unveils a unique piece of my journey — my vibrant cultural heritage, my bold steps into tech, and the values I cherish 💖.
             </p>
         `,
         isCover: true
@@ -17,98 +15,65 @@ const pages = [
     {
         title: "Introduction",
         content: `
-            <ul>
-                <li><strong>Name:</strong> Mithana Madhuri Reddy (kutty to friends)</li>
-                <li><strong>Contact:</strong> mithanamadhuri@gmail.com</li>
-                <li><strong>Motto:</strong> Pursuing to catch flight ✈️ not feelings!</li>
-                <li><strong>Focus:</strong> Making memories and chasing dreams while staying true to roots</li>
-                <li><strong>Values:</strong> Strong family values and cultural heritage</li>
-            </ul>
+            <p>Hello! I'm Mithana Madhuri Reddy, but everyone calls me <mark>kutty</mark> 🌸. I'm excited to share my story with you through this interactive eBook.</p>
+            <p><b>Highlighting my strong family and commitment to my community</b> 💫 is at the heart of who I am.</p>
+            <p>I believe in making memories, chasing dreams, and embracing every moment that adds a spark to life ✨.</p>
+            <p>You can reach me at <b>mithanamadhuri@gmail.com</b>. Take your time exploring each section — I promise there's a little surprise in every chapter 😉.</p>
         `
     },
     {
         title: "My Biography",
         content: `
-            <ul>
-                <li><strong>Cultural Background:</strong> Rich ancestral heritage with deep family values</li>
-                <li><strong>Traditions:</strong> Active participant in poojalu, nommulu, and cultural events</li>
-                <li><strong>Personal Journey:</strong> From heartache to hope - currently healing and growing</li>
-                <li><strong>Style:</strong> Romanticizing life with bindis and jhumkas</li>
-                <li><strong>Identity:</strong> Proud part of traditional Indian culture pursuing modern dreams</li>
-            </ul>
+            <p>I deeply value <mark>family</mark> and <mark>community</mark> ties. Growing up surrounded by rich traditions has shaped me into who I am today.</p>
+            <p>I'm an enthusiast for poojalu, nommulu, and cultural celebrations — they keep me rooted while giving me joy 🌼.</p>
+            <p>From lessons of heartache to moments of hope, life has taught me to embrace both the sunshine and the rain 🌦️.</p>
+            <p>Bindis & jhumkas aren’t just accessories for me — they’re my way of romanticizing life ❤️.</p>
         `
     },
     {
         title: "My Favorites",
         content: `
+            <p>📚 <b>Books:</b> I’m a horror fiction addict — the thrill keeps me hooked.</p>
+            <p>🎬 <b>Movies:</b> Allu Arjun fan forever! His energy is unmatched.</p>
+            <p>🎵 <b>Song:</b> "Ni Choopule Ma Oopri" — forever my mood lifter 💖.</p>
+            <p>✨ <b>Life Motto:</b> <mark>Be a voice, not an echo</mark>.</p>
+        `
+    },
+    {
+        title: "❤️ Heart Skipped a Beat",
+        content: `
+            <p>Some moments leave you breathless… mine came when I met <b>that one person</b> 💓.</p>
+            <p>🎵 <i>Song on loop:</i> <mark>Samajavaragamana</mark> — setting the vibe 🎧.</p>
             <ul>
-                <li><strong>Books:</strong> Horror books - love the thrill of getting scared while reading</li>
-                <li><strong>Movies:</strong> Allu Arjun cinema - can watch his films repeatedly</li>
-                <li><strong>Song:</strong> "ni choopule ma oopri song" 😅🫣</li>
-                <li><strong>Quote:</strong> "Pursuing to catch flight not feelings...and be a voice not an echo like me😅"</li>
+                <li>Pure, unconditional love of <mark>childhood innocence</mark> during my co-ed school days ✒️.</li>
+                <li>But not without the shadows — hatred, anger, and creative assumptions brought their own challenges 😌.</li>
+                <li>Each phase carved me into the person I am today — softer yet stronger.</li>
             </ul>
         `
     },
     {
-        title: "Hobbies & Interests",
+        title: "💫 Chapters That Shaped Me",
         content: `
-            <ul>
-                <li><strong>Relaxation:</strong> Sleeping and sharing personal stories with friends</li>
-                <li><strong>Creative:</strong> Creating beautiful henna designs on hands</li>
-                <li><strong>Fashion:</strong> Wearing vibrant sarees on special occasions</li>
-                <li><strong>Entertainment:</strong> Watching daily serials religiously</li>
-                <li><strong>Unique Talents:</strong> Irritating others (fun way), crying without reason</li>
-                <li><strong>Lifestyle:</strong> Romanticizing life with traditional bindis and jhumkas</li>
-            </ul>
-        `
-    },
-    {
-        title: "Daily Habits & Skills",
-        content: `
-            <ul>
-                <li><strong>Philosophy:</strong> Being authentic and letting others form their own opinions</li>
-                <li><strong>Cultural Practice:</strong> Incorporating traditional Indian culture into daily life</li>
-                <li><strong>Daily Routine:</strong> Watching favorite serials and spending time with friends</li>
-                <li><strong>Approach:</strong> Staying true to self while being open to growth</li>
-                <li><strong>Values:</strong> Appreciating beauty in traditional things and practices</li>
-            </ul>
-        `
-    },
-    {
-        title: "Professional Life & Achievements",
-        content: `
-            <ul>
-                <li><strong>Current Project:</strong> Collaborating on web application development</li>
-                <li><strong>Skills Developed:</strong> Teamwork and communication through project work</li>
-                <li><strong>Experience:</strong> Participated in hackathon, showcased coding skills</li>
-                <li><strong>Milestone:</strong> Completed first coding project during diploma</li>
-                <li><strong>Internship:</strong> Selected for industry experience opportunity</li>
-                <li><strong>Education:</strong> Graduating with honors in B.Tech CSE</li>
-            </ul>
+            <p>I'm currently collaborating on a web app project 🚀 — teamwork & communication have been my superpowers here.</p>
+            <p>Participated in a hackathon and showcased my coding skills 💻.</p>
+            <p>My diploma’s first coding project gave me the confidence to dream bigger in tech.</p>
+            <p>Internship ✔️ Graduation (B.Tech CSE with honors) ✔️ <mark>Next stop: sky-high goals!</mark></p>
         `
     },
     {
         title: "Travel Memories",
         content: `
-            <ul>
-                <li><strong>Spiritual Journey:</strong> Capturing God's beauty through photography at divine destinations</li>
-                <li><strong>South Indian Temples:</strong> Tirupati, Vijayawada, Padmanabhaswamy, Madurai, Annavaram, Kanipakam</li>
-                <li><strong>Sacred Sites:</strong> Vaishnavi Mata temple, Shirdi Sai Baba temple</li>
-                <li><strong>North Indian Destinations:</strong> Golden Temple, Kashi Vishwanath temple</li>
-                <li><strong>Eastern Temples:</strong> Jagannath temple</li>
-                <li><strong>Experience:</strong> Each visit enriches soul and strengthens faith connection</li>
-            </ul>
+            <p>Capturing <mark>God’s beauty</mark> through my lens as I wander sacred lands 🌏.</p>
+            <p>🙏 Visited: Tirupati, Vijayawada, Vaishnavi Mata, Padmanabhaswamy, Shirdi Sai Baba.</p>
+            <p>✨ Also explored: Golden Temple, Jagannath, Kashi Vishwanath, Madurai, Annavaram, Kanipakam.</p>
+            <p>Every temple visit — a spiritual recharge for my soul 💖.</p>
         `
     },
     {
         title: "Thank You!",
         content: `
-            <ul>
-                <li><strong>Gratitude:</strong> Thank you for reading through my personal eBook!</li>
-                <li><strong>Journey Shared:</strong> From horror books to tech achievements, cultural values to spiritual travels</li>
-                <li><strong>Remember:</strong> "Pursuing to catch flight not feelings"</li>
-                <li><strong>Inspiration:</strong> "Be a voice not an echo like me😅"</li>
-            </ul>
+            <p>Thank you for walking through my world 🌸. From my passions in tech to my cultural roots, I hope you felt my journey.</p>
+            <p><b>Final Note:</b> <mark>"Bloom with grace, even through the storms"</mark> 🌺.</p>
             <p style="text-align: center; font-size: 1.3rem; margin-top: 30px; text-indent: 0;">Thanks for being part of kutty's story! 🙏✈️</p>
         `
     }
