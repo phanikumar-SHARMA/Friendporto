@@ -75,6 +75,7 @@ const pages = [
             <p>Thank you for walking through my world 🌸. From my passions in tech to my cultural roots, I hope you felt my journey.</p>
             <p><b>Final Note:</b> <mark>"Bloom with grace, even through the storms"</mark> 🌺.</p>
             <p style="text-align: center; font-size: 1.3rem; margin-top: 30px; text-indent: 0;">Thanks for being part of kutty's story! 🙏✈️</p>
+            <p> Made by 🤝 with 🤝 and 🐍</p>
         `
     }
 ];
