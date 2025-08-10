@@ -3,7 +3,7 @@ const pages = [
         title: "Mithana Madhuri Reddy's eBook",
         content: `
             <div class="subtitle"><mark>Pursuing to catch flight ✈️ not feelings</mark></div>
-            <img src="my-image.jpg" alt="My Photo" style="width:132px; height:170px; border-radius:20px;">
+            <img src="IMG_20250810_170513_491.jpg" alt="My Photo" style="width:132px; height:170px; border-radius:20px;">
             <p style="text-align: center; margin-top: 40px; font-size: 1.3rem; text-indent: 0;">
                 Welcome to my <mark>digital memoir</mark> 📖! I'm Mithana Madhuri Reddy (kutty to my friends). Use the navigation on the left or the arrow buttons to explore the different chapters of my story.
             </p>
