@@ -5,7 +5,7 @@ const pages = [
             <div class="subtitle"><mark>Pursuing to catch flight ✈️ not feelings</mark></div>
             <img src="IMG_20250810_170513_491.jpg" alt="My Photo" style="width:155px; height:170px; border-radius:20px;">
             <p style="text-align: center; margin-top: 40px; font-size: 1.3rem; text-indent: 0;">
-                Welcome to my <mark>digital memoir</mark> 📖! I'm Mithana Madhuri Reddy (kutty to my best friends). Use the navigation on the left or the arrow buttons to explore the different chapters of my story.
+                Welcome to my <mark>digital EBook</mark> 📖! I'm Mithana Madhuri Reddy (kutty to my best friends). Use the navigation on the left or the arrow buttons to explore the different chapters of my story.
             </p>
             <p style="text-align: center; font-size: 1.1rem; text-indent: 0; margin-top: 20px;">
                 Each page unveils a unique piece of my journey — my vibrant cultural heritage, my bold steps into tech, and the values I cherish 💖.
