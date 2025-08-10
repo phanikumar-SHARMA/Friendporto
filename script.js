@@ -5,7 +5,7 @@ const pages = [
             <div class="subtitle"><mark>Pursuing to catch flight ✈️ not feelings</mark></div>
             <img src="IMG_20250810_170513_491.jpg" alt="My Photo" style="width:155px; height:170px; border-radius:20px;">
             <p style="text-align: center; margin-top: 40px; font-size: 1.3rem; text-indent: 0;">
-                Welcome to my <mark>digital memoir</mark> 📖! I'm Mithana Madhuri Reddy (kutty to my friends). Use the navigation on the left or the arrow buttons to explore the different chapters of my story.
+                Welcome to my <mark>digital memoir</mark> 📖! I'm Mithana Madhuri Reddy (kutty to my best friends). Use the navigation on the left or the arrow buttons to explore the different chapters of my story.
             </p>
             <p style="text-align: center; font-size: 1.1rem; text-indent: 0; margin-top: 20px;">
                 Each page unveils a unique piece of my journey — my vibrant cultural heritage, my bold steps into tech, and the values I cherish 💖.
@@ -16,7 +16,7 @@ const pages = [
     {
         title: "Introduction",
         content: `
-            <p>Hello! I'm Mithana Madhuri Reddy, but everyone calls me <mark>kutty</mark> 🌸. I'm excited to share my story with you through this interactive eBook.</p>
+            <p>Hello! I'm Mithana . Madhuri Reddy, but everyone calls me <mark>kutty</mark> 🐦. I'm excited to share my story with you through this interactive eBook.</p>
             <p><b>Highlighting my strong family and commitment to my community</b> 💫 is at the heart of who I am.</p>
             <p>I believe in making memories, chasing dreams, and embracing every moment that adds a spark to life ✨.</p>
             <p>You can reach me at <b>mithanamadhuri@gmail.com</b>. Take your time exploring each section — I promise there's a little surprise in every chapter 😉.</p>
@@ -28,7 +28,7 @@ const pages = [
             <p>I deeply value <mark>family</mark> and <mark>community</mark> ties. Growing up surrounded by rich traditions has shaped me into who I am today.</p>
             <p>I'm an enthusiast for poojalu, nommulu, and cultural celebrations — they keep me rooted while giving me joy 🌼.</p>
             <p>From lessons of heartache to moments of hope, life has taught me to embrace both the sunshine and the rain 🌦️.</p>
-            <p>Bindis & jhumkas aren’t just accessories for me — they’re my way of romanticizing life ❤️.</p>
+            <p>Bangles & jhumkas aren’t just accessories for me — they’re my way of inspiring life ❤️.</p>
         `
     },
     {
@@ -56,9 +56,9 @@ const pages = [
         title: "💫 Chapters That Shaped Me",
         content: `
             <p>I'm currently collaborating on a web app project 🚀 — teamwork & communication have been my superpowers here.</p>
-            <p>Participated in a hackathon and showcased my coding skills 💻.</p>
+            <p>Participated in an event and showcased my skills 💻.</p>
             <p>My diploma’s first coding project gave me the confidence to dream bigger in tech.</p>
-            <p>Internship ✔️ Graduation (B.Tech CSE with honors) ✔️ <mark>Next stop: sky-high goals!</mark></p>
+            <p>Internship ✔️ Graduating (B.Tech CSE.) ✔️ <mark>Next stop: sky-high goals!</mark></p>
         `
     },
     {
